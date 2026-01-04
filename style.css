@@ -394,7 +394,7 @@ footer {
     display: inline-block;
 }
 
-.fa-arrow-right {
+.fa-arrow-right, .fa-globe{
     font-size: 2.5rem;
     color: #a855f7;
     cursor: pointer;
