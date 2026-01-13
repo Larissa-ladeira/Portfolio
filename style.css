@@ -67,6 +67,7 @@ header nav {
     justify-content: center;
     align-items: center;
     padding: 40px 20px 60px;
+    gap: 80px;
 
 }
 .heroi-projetos {
@@ -151,7 +152,14 @@ header nav {
 footer {
     text-align: center;
     font-size: 15px;
+    padding: 20px;
+
     
+}
+footer a{
+    color: #a855f7;
+    text-decoration: none;
+    transition: 0.3s;
 }
 /* --- SEÇÃO DE SKILLS --- */
 
@@ -359,52 +367,36 @@ footer {
     margin: 0 auto;                    /* CENTRALIZA NA PÁGINA */
 }
 
-.seta-link i {
-    font-size: 2.5rem;
-    color: #a855f7;
-    cursor: pointer;
-    padding: 20px;
-    background: rgba(168, 85, 247, 0.1);
-    border-radius: 50%;
-    width: 80px;  
-    height: 80px;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;  /* Define um tamanho fixo para garantir o círculo perfeito */
-    height: 80px;
-}
-
-/* Efeito de Hover unificado */
-.seta-link:hover i {
-    background: #a855f7;
-    color: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
-}
-
 .seta-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+.fa-arrow-right, .fa-arrow-left{
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 50%;
-    text-decoration: none;
-    transform: translateY(-50%);
-    display: inline-block;
-}
-
-.fa-arrow-right, .fa-globe{
+    height: 80px;
+    width: 80px;
     font-size: 2.5rem;
     color: #a855f7;
-    cursor: pointer;
-    transition: 0.3s;
-    padding: 20px;
     background: rgba(168, 85, 247, 0.1);
     border-radius: 50%;
-    transition: 0.3s;
-
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding: 20px;
+    box-sizing: border-box;
     
+}
+
+.seta-link:hover i {
+    background-color: #a855f7;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
 }
 
 .seta-link:hover .fa-arrow-right {
@@ -450,13 +442,12 @@ footer {
 /* 4. Estilo padrão da foto (fechada) */
 .foto {
     width: 40%;
-    
     height: auto;
     object-fit: cover;
     flex-direction: column;
     align-items: center;
     border-radius: 12px;
-    margin: 0;              /* 🔥 REMOVE A BORDA BRANCA */
+    margin: 0;             
     display: block;
 }
 
@@ -566,7 +557,14 @@ footer {
 
     /* Ajustes da Seção de PROJETOS */
     #projeto-wrapper {
-        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        min-height: 450px;
     }
 
     #projeto-container {
@@ -575,26 +573,35 @@ footer {
     }
 
     .seta-link {
-        position: static;
-        transform: none;
-        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;          
+        height: 80px;             
+        align-self: center;    
     }
 
     .projeto {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        background-color: #1a1625;
+        border-radius: 12px;
+        border-left: 10px solid #a855f7;
+        border-top: 10px solid #a855f7;
+        padding: 20px;
+        min-height: 400px; 
         width: 100%;
-        overflow: hidden;
-        flex-direction: column; /* Imagem em cima, texto embaixo */
-        gap: 0;
+
     }
 
     .foto {
-        width: 100%;
-        height: 200px;
-        height: auto;
-        aspect-ratio: 16/9;
+        width: 40%;
+        height: 350px;
         object-fit: cover;
-        border-radius: 12px 12px 0 0; /* Arredonda apenas o topo */
+        border-radius: 12px; /* Arredonda apenas o topo */
         display: block;
+        background-color: #2a2435;
     }
 
     .projeto-info {
