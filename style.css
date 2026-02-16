@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/* Configurações Gerais */
+/* --- CONFIGURAÇÕES GERAIS --- */
 * {
     margin: 0;
     padding: 0;
@@ -8,111 +8,88 @@
     font-family: 'Poppins', sans-serif;
 }
 
-header {
-    position: fixed;     /* Faz o elemento ficar fixo na tela */
-    top: 0;              /* Cola no topo exato */
-    left: 0;             /* Garante que comece do canto esquerdo */
-    width: 100vw;         /* Ocupa toda a largura da tela */
-    z-index: 1000;       /* Garante que o menu fique NA FRENTE de todos os outros elementos */
-    background-color: #0f0c13; /* Use a mesma cor de fundo do seu body para não ficar transparente */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Adiciona uma sombra para destacar do conteúdo */
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
-    background-color: #0f0c13; /* Fundo preto arroxeado */
+    background-color: #0f0c13;
     color: white;
-    padding-top: 80px; /* Ajuste esse valor de acordo com a altura do seu menu */
-    font-size: 1rem;
-    line-height: 1.5;
-
+    overflow-x: hidden;
+    line-height: 1.6;
+    padding-top: 80px; 
 }
 
-/* Header e Menu */
+/* --- HEADER (FLUIDO E SEM QUEBRA) --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(15, 12, 19, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+
 header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 15px 5%;
     max-width: 1200px;
     margin: 0 auto;
-
+    flex-wrap: nowrap;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #a855f7; /* Roxo principal */
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    margin-left: 20px;
-    transition: 0.3s;
-}
-
-.menu a:hover {
+.logo { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
     color: #a855f7;
+    white-space: nowrap;
 }
 
-/* Seção Principal (Heroi) */
+.menu { display: flex; align-items: center; flex-wrap: nowrap; }
 
-.heroi{
-    min-height: 100vh; /* Mantém 100vh apenas na Home para centralizar tudo */
-    background: radial-gradient(circle at top, #1c142b, #0b0713);
+.menu a { 
+    color: white; 
+    text-decoration: none; 
+    margin-left: clamp(10px, 2vw, 20px); 
+    transition: 0.3s; 
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+    white-space: nowrap;
+}
+
+.menu a:hover { color: #a855f7; }
+
+/* --- SEÇÕES --- */
+section {
+    padding: 80px 10%;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    padding: 40px 20px 60px;
-    gap: 80px;
-
 }
-.heroi-projetos {
-    width: 100%; /* Use 100% em vez de 100vw */
-    max-width: 100%;
-    overflow-x: hidden;
 
-    background: radial-gradient(circle at top, #1c142b, #0b0713);
+h2 {
+    font-size: 2.2rem;
+    color: #a855f7;
+    margin-bottom: 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 80px 20px 100px
+    gap: 15px;
+    justify-content: center;
 }
 
-.contender h1 {
-    font-size: 50px;
-}
+/* --- HOME --- */
+#Home { background: radial-gradient(circle at top, #1c142b, #0b0713); }
+.heroi { display: flex; align-items: center; justify-content: space-between; gap: 50px; max-width: 1100px; margin: 0 auto; }
+.container h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1; }
+.container h1 span { color: #a855f7; }
+.container p { margin: 20px 0; color: #bbb; max-width: 500px; }
 
-.contender span {
-    color: #a855f7;
-}
-
-.contender p {
-    margin: 20px 0;
-    max-width: 500px;
-    color: #ccc;
-}
-
-/* Ícones Sociais */
-.medias a {
-    font-size: 25px;
-    color: white;
-    margin-right: 15px;
-    transition: 0.3s;
-}
-
-.medias a:hover {
-    color: #a855f7;
-    transform: translateY(-5px);
-}
-
-/* Botão Contatos */
 .btn {
     display: inline-block;
-    margin-top: 30px;
     padding: 12px 30px;
     border: 2px solid #a855f7;
     border-radius: 30px;
@@ -121,509 +98,123 @@ header nav {
     font-weight: bold;
     transition: 0.3s;
 }
+.btn:hover { background: #a855f7; box-shadow: 0 0 20px rgba(168, 85, 247, 0.4); }
 
-.btn:hover {
-    background-color: #a855f7;
-    box-shadow: 0 0 20px #a855f7;
-}
+.medias a { font-size: 25px; color: white; margin-right: 15px; transition: 0.3s; }
+.medias a:hover { color: #a855f7; }
 
-/* Círculo da Imagem */
 .image .circle {
-    width: 350px;
-    height: 350px;
-    background: linear-gradient(45deg, #a855f7, #6b21a8);
+    width: clamp(200px, 30vw, 320px);
+    height: clamp(200px, 30vw, 320px); 
     border-radius: 50%;
-    box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
-    
-    display: flex; /* Alinha a imagem no centro */
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Corta a imagem no formato do círculo */
-    border: 4px solid #a855f7; /* Opcional: uma borda para destacar */
+    border: 4px solid #a855f7; overflow: hidden;
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
 }
+.image .circle img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Estilização da Imagem dentro do círculo */
-.image .circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Faz a imagem preencher o círculo sem distorcer */
-    border-radius: 50%;
-}
-footer {
-    text-align: center;
-    font-size: 15px;
-    padding: 20px;
+/* --- SKILLS --- */
+#skill-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 50px; }
+.info { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.barra { width: 100%; height: 10px; background: #2a2435; border-radius: 10px; overflow: hidden; }
+.progresso { height: 100%; background: linear-gradient(90deg, #a855f7, #6b21a8); }
 
-    
-}
-footer a{
-    color: #a855f7;
-    text-decoration: none;
-    transition: 0.3s;
-}
-/* --- SEÇÃO DE SKILLS --- */
-
-
-
-#skills {
-    min-height: calc(100vh - 120px);
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza o título e o container das barras */
-    justify-content: center;
-    align-items: center;
-    
-}
-
-#skills h2 {
-    font-size: 2rem;
-    color: #a855f7; /* Roxo principal */
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-align: center;
-    justify-content: center;
-}
-
-#skills h2 i {
-    color: #a855f7;
-}
-
-/* Container que segura todos os itens */
-#skill-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 30px 60px;
-    width: 100%;
-    max-width: 900px;
-}
-
-/* Cada item individual (Texto + Barra) */
-.item {
+/* --- FORMAÇÃO (LISTA VERTICAL COM EFEITO LIFT) --- */
+#formacao-container { 
+    display: flex; 
+    flex-direction: column; /* Um embaixo do outro */
+    gap: 25px; 
+    max-width: 800px; 
+    margin: 0 auto; 
     width: 100%;
 }
 
-/* Área do Texto (Nome da Skill e Porcentagem) */
-.info {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-    font-weight: 600;
-}
-
-.nome {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-}
-
-.nome i {
-    color: #a855f7; /* Ícones em roxo */
-    font-size: 1.1rem;
-}
-
-.porcent {
-    color: #a855f7;
-}
-
-/* Fundo da Barra */
-.barra {
-    width: 100%;
-    height: 12px;
-    background-color: #2a2435; /* Roxo bem escuro para o fundo */
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-/* O preenchimento roxo da barra */
-.progresso {
-    height: 100%;
-    background: linear-gradient(90deg, #a855f7, #6b21a8); /* Gradiente roxo */
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(168, 85, 247, 0.4); /* Efeito de brilho */
-    transition: width 1.5s ease-in-out;
-}
-
-/* --- ESTILIZAÇÃO DA SEÇÃO DE FORMAÇÃO --- */
-
-#formacao {
-    min-height: calc(100vh - 120px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#formacao h2 {
-    font-size: 2rem;
-    color: #a855f7; /* Roxo principal */
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-align: center;
-    justify-content: center;
-}
-
-/* Container que empilha os cursos */
-#formacao-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* O "Card" de cada curso */
-.curso {
-    background-color: #1a1625; /* Roxo bem escuro para o fundo do card */
-    padding: 25px;
-    border-radius: 12px;
-    border-left: 10px solid #3c344d; /* Borda lateral discreta inicial */
-    transition: all 0.3s ease;
-    margin-bottom: 20px;
-}
-
-/* Efeito ao passar o mouse: a borda "acende" em roxo neon */
-.curso:hover {
-    border-left: 10px solid #a855f7;
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.15);
-    transform: translateX(10px); /* Leve movimento para a direita */
-}
-
-/* Estilo do Ano/Período */
-.periodo {
-    font-size: 0.9rem;
-    color: #a855f7;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-/* Estilo do Nome da Instituição */
-.instituicao {
-    font-size: 1.2rem;
-    color: #ffffff;
-    margin-bottom: 5px;
-    text-transform: capitalize; /* Garante boa formatação de nomes */
-}
-
-/* Estilo do Nome do Curso/Titulação */
-.titulacao {
-    font-size: 1rem;
-    color: #b3b3b3; /* Cinza claro para descrição */
-}
-
-/* Ajuste para o ícone do título */
-#formacao h2 i {
-    font-size: 2rem;
-}
-
-/* --- SEÇÃO DE PROJETOS --- */
-
-#projetos {
-    background-color: #0f0c13;
-    width: 100%;
+.curso { 
+    background: #1a1625; 
+    padding: 25px; 
+    border-radius: 15px; 
+    border-left: 6px solid #a855f7;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição suave "elástica" */
+    cursor: default;
     position: relative;
 }
 
+/* Efeito de Levantar e Brilhar */
+.curso:hover { 
+    transform: translateY(-10px); /* Levanta o card */
+    background: #251f33; 
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2); /* Sombra neon suave */
+}
 
-#projeto-container {
-    
+.periodo { color: #a855f7; font-weight: bold; font-size: 0.9rem; margin-bottom: 5px; }
+.instituicao { font-size: 1.3rem; color: #fff; margin-bottom: 5px; }
+.titulacao { color: #ccc; font-size: 1rem; }
+
+/* --- PROJETOS (LADO A LADO) --- */
+#projeto-wrapper { display: flex; flex-direction: column; gap: 35px; max-width: 1100px; margin: 0 auto; }
+
+.projeto-flip {
+    background: #1a1625;
+    border-radius: 20px;
+    border: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+.projeto-frente {
     display: flex;
-    flex-direction: column;
-    gap: 25px;
-    width: 100%;
-    max-width: 900px; /* Impede que os cards fiquem largos demais */
-    margin: 0 auto;
+    flex-direction: row; 
+    padding: 30px;
+    gap: 40px;
+    align-items: flex-start;
 }
 
-#formacao {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza horizontalmente os cards de curso */
-    padding: 40px 10%;
-}
-
-#projetos h2 {
-    font-size: 2rem;
-    color: #a855f7;
-    margin-bottom: 30px;
-    display: flex;
-    gap: 15px;
-    text-align: center;
-    justify-content: center;
-
-    
-}
-
-#projeto-wrapper {
-    display: flex;                     /* ATIVA FLEX */
-    justify-content: center;           /* CENTRALIZA O CONTAINER */
-    align-items: center;               /* ALINHA A SETA AO MEIO */
-    gap: 20px;                         /* ESPAÇO ENTRE CARD E SETA */
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;                    /* CENTRALIZA NA PÁGINA */
-}
-
-.seta-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-
-.fa-arrow-right, .fa-arrow-left{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 80px;
-    width: 80px;
-    font-size: 2.5rem;
-    color: #a855f7;
-    background: rgba(168, 85, 247, 0.1);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    padding: 20px;
-    box-sizing: border-box;
-    
-}
-
-.seta-link:hover i {
-    background-color: #a855f7;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
-}
-
-.seta-link:hover .fa-arrow-right {
-    transform: scale(1.1) translateX(10px);
-}
-
-.seta-link:hover .fa-arrow-left {
-    transform: scale(1.1) translateX(-10px);
-}
-
-/* Card Individual Estilo Horizontal */
-.projeto {
-
-    display: flex;                 /* 🔥 ESSENCIAL */
-    align-items: center;           /* Centraliza verticalmente */
-    justify-content: center;       /* Centraliza o conteúdo */
-    gap: 30px;
-
-    background-color: #1a1625;
-    border-radius: 12px;
-    border-left: 10px solid #a855f7;
-    border-top: 10px solid #a855f7; /* Borda lateral igual à imagem de referência */
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    padding: 20px;
-}
-
-.projeto:has(details[open]) .foto {
-    width: 0;
-    margin: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* 3. Fazer o texto ocupar todo o espaço quando a imagem sumir */
-.projeto:has(details[open]) .projeto-info {
-    flex: 1;
-    padding: 40px 30px; /* Aumenta o respiro interno */
-    transition: all 0.5s ease-in-out;
-}
-
-/* 4. Estilo padrão da foto (fechada) */
 .foto {
-    width: 40%;
-    height: auto;
-    object-fit: cover;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 12px;
-    margin: 0;             
-    display: block;
+    width: 380px;
+    min-width: 380px;
+    border-radius: 15px;
+    object-fit: contain;
+    background: #0b0713;
+    transition: 0.4s ease;
 }
 
+.projeto-info { flex: 1; }
+.titulo { font-size: 1.7rem; color: #fff; margin-bottom: 5px; }
 
-.projeto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
-}
-
-/* Parte de Texto do Card */
-.projeto-info {
-    flex: 1;
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.projeto-info .periodo {
-    font-size: 1.5rem;
-    color: #a855f7;
-    font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
-.projeto-info .titulo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.projeto-info p {
-    font-size: 0.9rem;
-    color: #ccc;
-    line-height: 1.5;
-}
-
-
-/* Estilização do 'Saiba mais' */
-.descricao summary {
-    cursor: pointer;
-    color: #a855f7;
-    font-weight: bold;
+summary {
+    display: inline-block;
+    padding: 10px 25px;
     margin-top: 15px;
-    list-style: none; /* Remove a setinha padrão se desejar */
+    border: 2px solid #a855f7;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    transition: 0.3s;
 }
 
-.descricao summary::before {
-    content: "▶ ";
-    font-size: 0.8rem;
+summary:hover { background: #a855f7; box-shadow: 0 0 15px rgba(168, 85, 247, 0.5); }
+summary::-webkit-details-marker { display: none; }
+
+.projeto-verso p {
+    margin-top: 20px;
+    color: #ccc;
+    font-size: 0.95rem;
+    animation: fadeIn 0.5s ease;
 }
 
-/* --- RESPONSIVIDADE UNIFICADA --- */
-@media (max-width: 768px) {
-    
-    /* Ajustes Gerais de Texto e Hero */
-    .heroi {
-        flex-direction: column-reverse; 
-        text-align: center;
-        height: auto;
-        padding-top: 100px;
-    }
+/* --- FOOTER --- */
+footer { padding: 40px; text-align: center; background: #0b0713; border-top: 1px solid #1a1625; }
+footer a { color: #a855f7; text-decoration: none; }
 
-    .contender h1 {
-        font-size: 35px; /* Diminui o título principal no mobile */
-    }
-
-    .contender p {
-        margin: 20px auto;
-        font-size: 14px;
-    }
-
-    .image .circle {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 30px;
-    }
-
-    /* Ajustes da Seção de SKILLS (Grades) */
-    #skill-container {
-        grid-template-columns: 1fr; /* Muda de 2 colunas para 1 no mobile */
-        gap: 20px;
-        padding: 0 20px;
-    }
-
-    /* Ajustes da Seção de FORMAÇÃO */
-    #formacao {
-        padding: 40px 5%;
-    }
-    
-    .curso {
-        padding: 15px;
-    }
-
-    .curso:hover {
-        transform: none; /* Remove movimento lateral para evitar quebra de tela no mobile */
-    }
-    
-    .instituicao {
-        font-size: 1.1rem;
-    }
-
-    /* Ajustes da Seção de PROJETOS */
-    #projeto-wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        min-height: 450px;
-    }
-
-    #projeto-container {
-        width: 95%; /* Dá uma margem pequena nas laterais */
-        margin: 0 auto;
-    }
-
-    .seta-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;          
-        height: 80px;             
-        align-self: center;    
-    }
-
-    .projeto {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        background-color: #1a1625;
-        border-radius: 12px;
-        border-left: 10px solid #a855f7;
-        border-top: 10px solid #a855f7;
-        padding: 20px;
-        min-height: 400px; 
-        width: 100%;
-
-    }
-
-    .foto {
-        width: 40%;
-        height: 350px;
-        object-fit: cover;
-        border-radius: 12px; /* Arredonda apenas o topo */
-        display: block;
-        background-color: #2a2435;
-    }
-
-    .projeto-info {
-        padding: 20px;
-        text-align: center;
-    }
-
-    .projeto-info .titulo {
-        justify-content: center;
-    }
-
-    /* Ajuste do Menu Header */
-    header nav {
-        padding: 15px 5%;
-        flex-direction: column; /* Opcional: empilha logo e menu se ficarem apertados */
-        gap: 10px;
-    }
-
-    .menu a {
-        margin-left: 10px;
-        margin-right: 10px;
-        font-size: 14px;
-    }
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 968px) {
+    .projeto-frente { flex-direction: column; align-items: center; text-align: center; }
+    .foto { width: 100%; min-width: unset; max-width: 500px; }
+    .heroi { flex-direction: column-reverse; text-align: center; }
+    #skill-container { grid-template-columns: 1fr; }
 }
 
+@media (max-width: 480px) {
+    header nav { padding: 10px 3%; }
+    .logo { font-size: 1.2rem; }
+    .menu a { margin-left: 8px; font-size: 0.75rem; }
+}
