@@ -275,8 +275,8 @@
                            </details>
                         </div>
                     </div>
-
-        </article>
+                </div>
+        </div>
 
 
         <!--Projeto 2-->
@@ -366,8 +366,7 @@
                         <img src="imagem/projet-paises.png" alt="Projeto 5" class="foto">
                         <div class="projeto-info">
                            <p class="periodo">2026</p> 
-                           <h3 class="titulo">🌍 Países mais visitados do mundo! 
- </h3>
+                           <h3 class="titulo">🌍 Países mais visitados do mundo! </h3>
                                <p>Página web responsiva que exibe os 6 países mais visitados internacionalmente (dados UN Tourism 2024/2025), com layout adaptável via media queries, Flexbox/Grid e efeitos interativos. Desenvolvida para demonstrar conceitos de design responsivo em diferentes dispositivos.</p>
                            <details class="projeto-verso">
                             <summary>Saiba mais....</summary>
@@ -391,22 +390,12 @@
                 </div>
             </div>
         </div>
+    </div>
     </main>
 </section>
     <footer>
         <p>Desenvolvido por <a href="https://github.com/Larissa-ladeira?tab=repositories" target="_blank">Larissa Ladeira</a> &copy; 2026</p>
     </footer>
 
-    <script>
-    const details = document.querySelectorAll("details");
-    details.forEach((targetDetail) => {
-        targetDetail.addEventListener("click", () => {
-            details.forEach((detail) => {
-                if (detail !== targetDetail) {
-                    detail.removeAttribute("open");
-                }
-            });
-        });
-    });
-</script>
+<script src="script.js"></script>
 </body>
