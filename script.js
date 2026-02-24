@@ -1,5 +1,20 @@
 // Intersection Observer simples e leve
 const projetos = document.querySelectorAll('.projeto-flip');
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+
+// Abre/Fecha o menu ao clicar no ícone
+hamburger.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+});
+
+// Opcional: Fecha o menu automaticamente ao clicar em um link
+document.querySelectorAll('.menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
+
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -17,3 +32,6 @@ projetos.forEach((projeto, index) => {
     projeto.style.transitionDelay = `${index * 0.15}s`;
     observer.observe(projeto);
 });
+
+
+

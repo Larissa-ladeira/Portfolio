@@ -49,6 +49,13 @@ header nav {
     white-space: nowrap;
 }
 
+.menu-hamburger {
+    display: none;
+    font-size: 1.8rem;
+    color: #a855f7;
+    cursor: pointer;
+}
+
 .menu { display: flex; 
     align-items: center; 
     flex-wrap: nowrap; 
@@ -392,9 +399,42 @@ footer a {
 
 @media (max-width: 768px) {
 
+    @media (max-width: 768px) {
+    .menu-hamburger {
+        display: block; /* Mostra o ícone no celular */
+    }
+
+    .menu {
+        display: none; /* Esconde o menu original */
+        flex-direction: column;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(15, 12, 19, 0.98);
+        padding: 20px;
+        border-bottom: 2px solid #a855f7;
+        text-align: center;
+        gap: 20px;
+    }
+
+    /* Classe que o JS vai ativar */
+    .menu.active {
+        display: flex;
+    }
+
+    .menu a {
+        margin: 0;
+        font-size: 1.2rem;
+        display: block;
+        padding: 10px 0;
+    }
+
+
     .projeto-flip {
         transform: translateY(80px) scale(0.97);
         filter: blur(4px);
+        }
     }
 
 }
