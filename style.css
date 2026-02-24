@@ -276,7 +276,9 @@ h2 {
     align-items: flex-start;
     width: 100%; /* Adicione isso */
     background: #1a1625; /* Opcional: adiciona fundo ao card para igualar visualmente */
+    border-left: 15px solid #a855f7;
     border-radius: 20px;
+    margin: 20px;
 }
 
 .foto {
