@@ -85,30 +85,17 @@ if (hamburger && navMenu) {
 }
 
 
-// =============================================
-// Animação de entrada dos projetos (Intersection Observer)
-// =============================================
+// Animação de entrada dos projetos
 const projetos = document.querySelectorAll(".projeto-flip");
 
-if (projetos.length > 0) {
-    const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
-                    // observer.unobserve(entry.target); // descomente se quer animar apenas uma vez
-                }
-            });
-        },
-        {
-            threshold: 0.15,
-            rootMargin: "0px 0px -10% 0px",
-        }
-    );
-
-    projetos.forEach((projeto, index) => {
-        // Delay escalonado para efeito cascata bonito
-        projeto.style.transitionDelay = `${index * 0.12}s`;
-        observer.observe(projeto);
-    });
-}
+projetos.forEach((projeto, index) => {
+    projeto.style.opacity = "0";
+    projeto.style.transform = "translateY(30px)";
+    projeto.style.transition = "all 0.6s ease";
+    projeto.style.transitionDelay = `${index * 0.1}s`;
+    
+    setTimeout(() => {
+        projeto.style.opacity = "1";
+        projeto.style.transform = "translateY(0)";
+    }, 100);
+});

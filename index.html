@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="favicon.svg" type="image/svg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<head>
 
 <body>
     <header>
@@ -255,17 +257,64 @@
                     </div>
                 </section>
 
-    <!--seção projetos - projeto 01-->
-    <section id="projetos">
+    <!--seção projetos -->
+    <!-- Seção Projetos -->
+        <section id="projetos">
             <h2><i class="fa-solid fa-trowel-bricks"></i> Projetos</h2>            
-        
             <div id="projeto-wrapper">
+
+    <!-- Projeto 1: Automação Python -->
+<div class="projeto-flip">
+    <div class="projeto-inner">
+        <div class="projeto-frente">
+            <img src="imagem/projeto-automação-playwright.png" alt="Automação Python" class="foto">
+            <div class="projeto-info">
+                <p class="periodo">2026</p>
+                <h3 class="titulo">🤖 DataSync Bot: Playwright & Excel (XLSX)</h3>
+                <p>Automação RPA de alta performance para extração de dados e processamento offline com planilhas Excel.</p>
+                <details class="projeto-verso">
+                    <summary>Saiba mais....</summary>
+                    
+                    <p><strong>⚙️ Web Scraping Avançado:</strong> 
+                    Navegação com <strong>Playwright</strong> para extração de dados dinâmicos, lidando com autenticação e seletores complexos.</p>
+                    
+                    <p><strong>📂 Manipulação de Planilhas:</strong> 
+                    Integração com arquivos <code>.xlsx</code> usando <strong>Openpyxl</strong>, permitindo leitura e escrita de dados de forma local e veloz.</p>
+
+                    <p><strong>🔐 Segurança e Variáveis:</strong> 
+                    Gerenciamento de credenciais sensíveis através de <strong>Dotenv (.env)</strong>, garantindo que logins nunca fiquem expostos no código.</p>
+
+                    <p><strong>🧠 Lógica de Fluxo Crítico:</strong> 
+                    Sistema de tratamento de erros com <code>try/except</code>, formatação de dados e verificação de duplicidade na planilha para garantir integridade.</p>
+                    <p><strong>📺 Demonstração do Bot em Ação:</strong></p>
+                    <video src="imagem/Automação-Playwright.mp4" controls style="max-width: 100%; width: 600px; border-radius: 10px; margin: 15px 0;"></video>
+                    <p><strong>🛠️ Tecnologias Utilizadas:</strong></p>
+                    <div class="tech-tags">
+                        <span>Python 3</span>
+                        <span>Playwright</span>
+                        <span>Openpyxl</span>
+                        <span>Excel</span>
+                    </div>
+                    
+                    <a href="https://github.com/Larissa-ladeira/automacao-playwright" target="_blank" class="btn-github">
+                        <i class="fa-brands fa-github"></i> Ver Código no GitHub
+                    </a>
+                </details>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+            
+    <!--seção projetos - projeto 02-->
+
 
             <div class="projeto-flip">
                 <div class="projeto-inner">
                     
                     <div class="projeto-frente">
-                        <img src="imagem/projet-formulario-atualizado.png" alt="Projeto 1" class="foto">
+                        <img src="imagem/projet-formulario-atualizado.png" alt="Projeto 2" class="foto">
                         <div class="projeto-info">
                             <p class="periodo">2026</p> 
                             <h3 class="titulo">🚀 Cadastro Cloud: Firebase & ViaCEP API</h3>
@@ -286,14 +335,16 @@
                                 <p><strong>🛡️ Lógica de Negócio:</strong> 
                                 Implementação de validações de campos obrigatórios, tratamento de erros para CEPs inexistentes e confirmação de exclusão de registros.</p>
 
-                                <p><strong>🛠️ Tecnologias Utilizadas:</strong></p>
-                                
-                                <strong>JavaScript (ES6+):</strong> Lógica modular e consumo de APIs REST via Fetch.
-                                <strong>Firebase Firestore:</strong> Banco de Dados NoSQL escalável.
-                                <strong>Bootstrap 5 & CSS3:</strong> Layout totalmente responsivo com estilização "Clean".
-                                <strong>Google Fonts:</strong> Tipografia Poppins para alta legibilidade.
-                            
-                                 <a href="https://larissa-ladeira.github.io/Cadastro-na-Nuvem-com-Firebase-e-ViaCEP/" target="_blank"><i class="fa-solid fa-globe"></i> Acesse o Site</a>
+<p><strong>🛠️ Tecnologias Utilizadas:</strong></p>
+                                <div class="tech-tags">
+                                    <span>JavaScript (ES6+)</span>
+                                    <span>Firebase Firestore</span>
+                                    <span>Bootstrap 5</span>
+                                    <span>CSS3</span>
+                                    <span>ViaCEP API</span>
+                                </div>
+                                        
+                                <a href="https://larissa-ladeira.github.io/Cadastro-na-Nuvem-com-Firebase-e-ViaCEP/" target="_blank"><i class="fa-solid fa-globe"></i> Acesse o Site</a>
                                 
                             </details>
                         </div>
@@ -301,12 +352,11 @@
                 </div>
             
 
-
-        <!--Projeto 2-->
+        <!--Projeto 3-->
             <div class="projeto-flip">
                 <div class="projeto-inner">
                     <div class="projeto-frente">
-                        <img src="imagem/projeto minecraft.png" alt="Projeto 2" class="foto">
+                        <img src="imagem/projeto minecraft.png" alt="Projeto 3" class="foto">
                         <div class="projeto-info">
                            <p class="periodo">2025</p> 
                            <h3 class="titulo">🎥 Landing Page: Um Filme Minecraft</h3>
@@ -322,17 +372,23 @@
                                 <p><strong>Responsividade:</strong> Implementação de Media Queries para adaptar o menu de navegação e as imagens em telas menores, garantindo que o conteúdo seja legível em dispositivos móveis.</p>
                                 <p><strong>Responsividade:</strong> Implementação de Media Queries para adaptar o menu de navegação e as imagens em telas menores, garantindo que o conteúdo seja legível em dispositivos móveis.</p>
                                 <p><strong>Layout Moderno:</strong>Uso de Flexbox para centralizar elementos e organizar o sistema de navegação de forma equilibrada.</p>
+                                <p><strong>🛠️ Tecnologias Utilizadas:</strong></p>
+                                <div class="tech-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>Google Fonts</span>
+                                </div>
                                 <a href="https://larissa-ladeira.github.io/Site-Minecraft/" target="_blank"><i class="fa-solid fa-globe"></i> Acesse o Site</a>
         
                         </details>
                     </div>
                 </div>
             </div>
-        <!--Projeto 3-->
+        <!--Projeto 4-->
                    <div class="projeto-flip">
                 <div class="projeto-inner">
                     <div class="projeto-frente">
-                        <img src="imagem/encurtar-link.png" alt="Projeto 3" class="foto">
+                        <img src="imagem/encurtar-link.png" alt="Projeto 4" class="foto">
                         <div class="projeto-info">
                            <p class="periodo">2026</p> 
                            <h3 class="titulo">🔗 Encurtador de Links com API – TinyURL</h3>
@@ -343,6 +399,13 @@
                                 <p><strong>O projeto foi desenvolvido com foco em usabilidade, estética moderna e integração com serviços externos, destacando os seguintes pontos: </strong></p>
 
                                 <p><strong>Consumo de API Externa:</strong> Integração com o serviço TinyURL por meio de requisições HTTP utilizando <code>fetch()</code>, permitindo encurtar links dinamicamente.</p> <p><strong>Validação de Dados:</strong> Verificação da existência da URL antes do envio, além de tratamento de erros para falhas de conexão ou respostas inválidas da API.</p> <p><strong>Manipulação do DOM:</strong> Atualização do campo de entrada com a URL encurtada e seleção automática do texto para facilitar a cópia.</p> <p><strong>Design Moderno:</strong> Interface inspirada em estilos futuristas com glassmorphism, bordas iluminadas, gradientes radiais e sombras suaves, utilizando variáveis CSS para padronização das cores.</p> <p><strong>Responsividade:</strong> Uso de Flexbox e Media Queries para adaptar o layout a diferentes tamanhos de tela, garantindo boa experiência em dispositivos móveis.</p> <p><strong>Boas Práticas:</strong> Organização do código, separação entre estrutura (HTML), estilos (CSS) e lógica (JavaScript), além de foco em acessibilidade visual e clareza na interação.</p>
+                                <p><strong>🛠️ Tecnologias Utilizadas:</strong></p>
+                                <div class="tech-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>TinyURL API</span>
+                                </div>
                                 <a href="https://larissa-ladeira.github.io/Encurtador-de-Links-com-API/" target="_blank"><i class="fa-solid fa-globe"></i> Acesse o Site</a>
                             
                         </details>
@@ -350,11 +413,11 @@
                 </div>
             </div>
 
-                <!--Projeto 4-->
+                <!--Projeto 5-->
                    <div class="projeto-flip">
                 <div class="projeto-inner">
                     <div class="projeto-frente">
-                        <img src="imagem/Conversor-de-arquivos.png" alt="Projeto 4" class="foto">
+                        <img src="imagem/Conversor-de-arquivos.png" alt="Projeto 5" class="foto">
                         <div class="projeto-info">
                            <p class="periodo">2026</p> 
                            <h3 class="titulo">📄TopConvert – Conversor de Imagens e PDF </h3>
@@ -372,6 +435,14 @@
                             <p><strong>UX & Design:</strong> Layout limpo e moderno seguindo a paleta de cores institucional, com total responsividade para uso em dispositivos móveis e desktops.</p>
 
                             <p><strong>Manipulação de Blobs:</strong> Uso de <code>Blob</code> e <code>URL.createObjectURL</code> para gerar links de download instantâneos para os arquivos convertidos pelo sistema.</p>
+                                <p><strong>🛠️ Tecnologias Utilizadas:</strong></p>
+                                <div class="tech-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                    <span>JavaScript</span>
+                                    <span>jsPDF</span>
+                                    <span>PDF.js</span>
+                                </div>
                                 <a href="https://larissa-ladeira.github.io/Conversor-de-arquivos/" target="_blank"><i class="fa-solid fa-globe"></i> Acesse o Site</a>
                         </details>
                     </div>
@@ -379,11 +450,11 @@
             </div>
 
 
-         <!--Projeto 5-->
+         <!--Projeto 6-->
             <div class="projeto-flip">
                 <div class="projeto-inner">
                     <div class="projeto-frente">
-                        <img src="imagem/projet-paises.png" alt="Projeto 5" class="foto">
+                        <img src="imagem/projet-paises.png" alt="Projeto 6" class="foto">
                         <div class="projeto-info">
                            <p class="periodo">2026</p> 
                            <h3 class="titulo">🌍 Países mais visitados do mundo! </h3>
@@ -403,6 +474,11 @@
                             <p><strong>Boas Práticas:</strong> HTML semântico, reset CSS, viewport meta para mobile-first, fontes system-ui para performance e acessibilidade (alt nas imagens corrigidos).</p>
 
                             <p><strong>Ferramentas:</strong> HTML5 + CSS3 puro (sem frameworks), desenvolvido no Visual Studio Code com extensão Live Server para testes em tempo real.</p>
+                                <p><strong>🛠️ Tecnologias Utilizadas:</strong></p>
+                                <div class="tech-tags">
+                                    <span>HTML5</span>
+                                    <span>CSS3</span>
+                                </div>
                                 <a href="https://larissa-ladeira.github.io/Paises-mais-visitados-do-Mundo/" target="_blank"><i class="fa-solid fa-globe"></i> Acesse o Site</a>
                         </details>
                     </div>
