@@ -100,19 +100,24 @@ projetos.forEach((projeto, index) => {
     }, 100);
 });
 
-//控制项目图片显示/隐藏
+// 控制项目图片显示/隐藏
 document.querySelectorAll('.projeto-verso').forEach(details => {
-    details.addEventListener('toggle', function() {
-        const projetoInfo = this.parentElement;
+    const toggleFoto = function() {
+        const projetoInfo = details.parentElement;
         const projetoFrente = projetoInfo.parentElement;
         const foto = projetoFrente.querySelector('.foto');
         if (foto) {
-            foto.style.display = this.open ? 'none' : 'block';
+            foto.style.display = details.open ? 'none' : 'block';
         }
         
-        const summary = this.querySelector('summary');
+        const summary = details.querySelector('summary');
         if (summary) {
-            summary.textContent = this.open ? 'Mostrar menos ▲' : 'Saiba mais....';
+            summary.textContent = details.open ? 'Mostrar menos ▲' : 'Saiba mais....';
         }
-    });
+    };
+    
+    details.addEventListener('toggle', toggleFoto);
+    
+    // Verifica ao carregar a página
+    toggleFoto();
 });

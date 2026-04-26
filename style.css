@@ -765,10 +765,6 @@ details.projeto-verso {
     margin-top: 20px;
 }
 
-details[open] .foto {
-    display: none !important;
-}
-
 .foto-expandida {
     display: none;
 }
@@ -781,8 +777,12 @@ details[open] .foto-expandida {
     max-height: 500px;
     object-fit: contain;
     border-radius: 16px;
-    margin: 10px auto;
+    margin: 15px auto;
     border: 2px solid rgba(168, 85, 247, 0.15);
+}
+
+details[open] .foto {
+    display: none;
 }
 
 details.projeto-verso summary {
