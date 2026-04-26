@@ -99,3 +99,21 @@ projetos.forEach((projeto, index) => {
         projeto.style.transform = "translateY(0)";
     }, 100);
 });
+
+//控制项目图片显示/隐藏
+document.querySelectorAll('.projeto-verso').forEach(details => {
+    details.addEventListener('toggle', function() {
+        const projetoInfo = this.parentElement;
+        const projetoFrente = projetoInfo.parentElement;
+        const foto = projetoFrente.querySelector('.foto');
+        if (foto) {
+            foto.style.display = this.open ? 'none' : 'block';
+        }
+        
+        const summary = this.querySelector('summary');
+        if (summary) {
+            summary.textContent = this.open ? 'Mostrar menos ▲' : 'Saiba mais....';
+            summary.style.justifyContent = 'center';
+        }
+    });
+});
