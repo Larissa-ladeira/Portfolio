@@ -730,19 +730,20 @@ h2 i {
     align-items: center;
     gap: 10px;
     padding: 12px 24px;
-    background: var(--accent);
-    color: white;
+    background: white;
+    color: var(--accent);
     border-radius: 10px;
     font-weight: 600;
     transition: all 0.3s ease;
     text-decoration: none;
+    border: 2px solid var(--accent);
 }
 
 .btn-github:hover {
-    background: var(--accent-dark);
+    background: var(--accent);
+    color: white;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(168, 85, 247, 0.35);
-    color: white;
 }
 
 .tech-tags {
