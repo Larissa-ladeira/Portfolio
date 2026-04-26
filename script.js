@@ -113,7 +113,6 @@ document.querySelectorAll('.projeto-verso').forEach(details => {
         const summary = this.querySelector('summary');
         if (summary) {
             summary.textContent = this.open ? 'Mostrar menos ▲' : 'Saiba mais....';
-            summary.style.justifyContent = 'center';
         }
     });
 });

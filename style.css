@@ -766,7 +766,7 @@ details.projeto-verso {
 }
 
 details[open] .foto {
-    display: none;
+    display: none !important;
 }
 
 .foto-expandida {
