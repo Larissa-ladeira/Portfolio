@@ -658,12 +658,20 @@ h2 i {
     width: 100%;
     max-width: 420px;
     height: 350px;
-    object-fit: cover;
+    object-fit: contain;
     background: var(--bg-main);
     transition: all 0.5s ease;
     border: 2px solid rgba(168, 85, 247, 0.15);
     display: block;
     margin: 0 auto;
+}
+
+
+.foto-HamburgueriaZ{
+    display: flex;             /* Coloca os itens lado a lado */
+    justify-content: center;   /* Centraliza as fotos na tela */
+    gap: 15px;                 /* Espaço entre as duas fotos */
+    padding: 20px;
 }
 
 .projeto-info {
