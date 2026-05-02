@@ -668,11 +668,22 @@ h2 i {
 }
 
 
-.foto-HamburgueriaZ{
+.foto-HamburgueriaZ {
     display: flex;             /* Coloca os itens lado a lado */
     justify-content: center;   /* Centraliza as fotos na tela */
     gap: 15px;                 /* Espaço entre as duas fotos */
-    padding: 20px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px 0;
+}
+
+details[open] .foto-HamburgueriaZ .foto-expandida {
+    width: auto;
+    max-width: calc((100% - 15px) / 2);
+    max-height: 560px;
+    object-fit: contain;
+    margin: 0;
 }
 
 .projeto-info {
@@ -957,6 +968,18 @@ footer a:hover::after {
     header nav {
         padding: 12px 5%;
         justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
+    .foto-HamburgueriaZ {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    details[open] .foto-HamburgueriaZ .foto-expandida {
+        max-width: 100%;
+        max-height: none;
     }
 }
 
