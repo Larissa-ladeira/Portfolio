@@ -657,11 +657,12 @@ h2 i {
 .foto {
     width: 100%;
     max-width: 420px;
-    height: 350px;
-    object-fit: contain;
-    background: var(--bg-main);
+    height: auto;
+    object-fit: initial;
+    background: transparent;
     transition: all 0.5s ease;
     border: 2px solid rgba(168, 85, 247, 0.15);
+    border-radius: 16px;
     display: block;
     margin: 0 auto;
 }
@@ -790,8 +791,9 @@ details[open] .foto-expandida {
     width: 100%;
     max-width: 600px;
     height: auto;
-    max-height: 500px;
-    object-fit: contain;
+    max-height: none;
+    object-fit: initial;
+    background: transparent;
     border-radius: 16px;
     margin: 15px auto;
     border: 2px solid rgba(168, 85, 247, 0.15);
@@ -915,7 +917,7 @@ footer a:hover::after {
         min-width: unset;
         max-width: 100%;
         height: auto;
-        max-height: 250px;
+        max-height: none;
     }
 
     #skill-container {
