@@ -60,26 +60,31 @@ const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
 
 if (hamburger && navMenu) {
-    hamburger.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        // Opcional: acessibilidade — aria-expanded
-        const isExpanded = navMenu.classList.contains("active");
-        hamburger.setAttribute("aria-expanded", isExpanded);
+    const setMenuOpen = (isOpen) => {
+        navMenu.classList.toggle("active", isOpen);
+        hamburger.setAttribute("aria-expanded", isOpen);
+        hamburger.innerHTML = isOpen
+            ? '<i class="fa-solid fa-xmark"></i>'
+            : '<i class="fa-solid fa-bars"></i>';
+        document.body.classList.toggle("menu-open", isOpen);
+    };
+
+    hamburger.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setMenuOpen(!navMenu.classList.contains("active"));
     });
 
     // Fecha ao clicar em link
     document.querySelectorAll(".menu a").forEach(link => {
         link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
-            hamburger.setAttribute("aria-expanded", "false");
+            setMenuOpen(false);
         });
     });
 
     // Boa prática: fecha ao clicar fora (opcional, mas melhora UX)
     document.addEventListener("click", (e) => {
         if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
-            navMenu.classList.remove("active");
-            hamburger.setAttribute("aria-expanded", "false");
+            setMenuOpen(false);
         }
     });
 }
