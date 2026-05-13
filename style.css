@@ -386,7 +386,7 @@ h2 i {
     pointer-events: none;
 }
 
-#skill-container {
+.skill-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 28px 60px;
@@ -935,7 +935,7 @@ footer a:hover::after {
         max-height: none;
     }
 
-    #skill-container {
+    .skill-container {
         grid-template-columns: 1fr;
     }
 }
