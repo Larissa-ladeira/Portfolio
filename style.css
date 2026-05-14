@@ -922,21 +922,12 @@ footer a:hover::after {
     }
 
     .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         width: 100%;
-    }
-
-    .container h3,
-    .container h1,
-    .container h2 {
-        width: 100%;
+        text-align: center;
     }
 
     .container p {
-        margin-left: auto;
-        margin-right: auto;
+        margin: 24px auto;
     }
 
     .medias {
