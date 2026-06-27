@@ -140,24 +140,44 @@ filtroBotoes.forEach(btn => {
     });
 });
 
-// 控制项目图片显示/隐藏
-document.querySelectorAll('.projeto-verso').forEach(details => {
-    const toggleFoto = function() {
-        const projetoInfo = details.parentElement;
-        const projetoFrente = projetoInfo.parentElement;
-        const foto = projetoFrente.querySelector('.foto');
-        if (foto) {
-            foto.style.display = details.open ? 'none' : 'block';
+// Expand Top: move midias para fora do details e controla layout
+document.querySelectorAll('.projeto-flip').forEach(projeto => {
+    const frente = projeto.querySelector('.projeto-frente');
+    const info = frente.querySelector('.projeto-info');
+    const details = info.querySelector('.projeto-verso');
+
+    const expandTop = document.createElement('div');
+    expandTop.className = 'expand-top';
+
+    ['foto-HamburgueriaZ', 'foto-PyFinancas'].forEach(cls => {
+        const wrapper = details.querySelector('.' + cls);
+        if (wrapper && details.contains(wrapper)) {
+            expandTop.appendChild(wrapper);
         }
-        
+    });
+
+    const imgs = details.querySelectorAll('.foto-expandida');
+    imgs.forEach(img => {
+        if (details.contains(img)) {
+            expandTop.appendChild(img);
+        }
+    });
+
+    const videos = details.querySelectorAll('.video-demo');
+    videos.forEach(v => expandTop.appendChild(v));
+
+    if (expandTop.children.length > 0) {
+        frente.insertBefore(expandTop, info);
+    }
+
+    const toggleExpandido = function() {
+        projeto.classList.toggle('expandido', details.open);
         const summary = details.querySelector('summary');
         if (summary) {
             summary.textContent = details.open ? 'Mostrar menos ▲' : 'Saiba mais....';
         }
     };
-    
-    details.addEventListener('toggle', toggleFoto);
-    
-    // Verifica ao carregar a página
-    toggleFoto();
+
+    details.addEventListener('toggle', toggleExpandido);
+    toggleExpandido();
 });

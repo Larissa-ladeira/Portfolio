@@ -654,6 +654,10 @@ h2 i {
     overflow: hidden;
 }
 
+.expandido .projeto-frente {
+    flex-direction: column;
+}
+
 .projeto-frente::before {
     content: '';
     position: absolute;
@@ -708,16 +712,34 @@ h2 i {
 
 
 .foto-HamburgueriaZ {
-    display: flex;             /* Coloca os itens lado a lado */
-    justify-content: center;   /* Centraliza as fotos na tela */
-    gap: 15px;                 /* Espaço entre as duas fotos */
+    display: flex;
+    justify-content: center;
+    gap: 15px;
     align-items: flex-start;
     width: 100%;
     max-width: 100%;
     padding: 15px 0;
 }
 
-details[open] .foto-HamburgueriaZ .foto-expandida {
+.foto-PyFinancas {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 100%;
+    padding: 15px 0;
+}
+
+.expandido .expand-top .foto-HamburgueriaZ .foto-expandida {
+    width: auto;
+    max-width: calc((100% - 15px) / 2);
+    max-height: 400px;
+    object-fit: contain;
+    margin: 0;
+}
+
+.expandido .expand-top .foto-PyFinancas .foto-expandida {
     width: auto;
     max-width: calc((100% - 15px) / 2);
     max-height: 400px;
@@ -828,7 +850,7 @@ details.projeto-verso {
     margin-top: 20px;
 }
 
-details[open] .foto {
+.expandido .foto {
     display: none;
 }
 
@@ -836,7 +858,20 @@ details[open] .foto {
     display: none;
 }
 
-details[open] .foto-expandida {
+.expand-top {
+    display: none;
+}
+
+.expandido .expand-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.expandido .expand-top .foto-expandida {
     display: block;
     width: 100%;
     max-width: 600px;
@@ -845,8 +880,13 @@ details[open] .foto-expandida {
     object-fit: initial;
     background: transparent;
     border-radius: 16px;
-    margin: 15px auto;
     border: 2px solid rgba(168, 85, 247, 0.15);
+}
+
+.expandido .expand-top video {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 16px;
 }
 
 details.projeto-verso summary {
@@ -1055,12 +1095,14 @@ footer a:hover::after {
 }
 
 @media (max-width: 600px) {
-    .foto-HamburgueriaZ {
+    .foto-HamburgueriaZ,
+    .foto-PyFinancas {
         flex-direction: column;
         align-items: center;
     }
 
-    details[open] .foto-HamburgueriaZ .foto-expandida {
+    .expandido .expand-top .foto-HamburgueriaZ .foto-expandida,
+    .expandido .expand-top .foto-PyFinancas .foto-expandida {
         max-width: 100%;
         max-height: none;
     }
