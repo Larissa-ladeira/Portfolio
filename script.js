@@ -207,10 +207,67 @@ if (stackPrev) stackPrev.addEventListener("click", (e) => { e.stopPropagation();
 // Click no wrapper (area vazia) avanca
 if (projetoWrapper) {
     projetoWrapper.addEventListener("click", (e) => {
+        if (dragFired) { dragFired = false; return; }
         if (e.target.closest("details") || e.target.closest("a") || e.target.closest("button")) return;
         e.stopPropagation();
         goNext();
     });
+}
+
+// Arrastar para navegar (swipe)
+let dragState = null;
+let dragFired = false;
+
+function getDragX(e) {
+    return e.type.startsWith('touch') ? e.touches[0].clientX : e.clientX;
+}
+
+function onDragStart(e) {
+    if (e.target.closest("details") || e.target.closest("a") || e.target.closest("button") || e.target.closest(".stack-nav")) return;
+    dragState = { startX: getDragX(e), currentX: getDragX(e) };
+}
+
+function onDragMove(e) {
+    if (!dragState) return;
+    dragState.currentX = getDragX(e);
+    const dx = dragState.currentX - dragState.startX;
+    const current = getFilteredProjetos()[stackIndex];
+    if (current) {
+        const card = current.querySelector('.projeto-frente');
+        if (card) {
+            const rotate = dx * 0.08;
+            card.style.transform = `translateX(${dx}px) rotate(${rotate}deg)`;
+            card.style.transition = 'none';
+        }
+    }
+}
+
+function onDragEnd() {
+    if (!dragState) return;
+    const dx = dragState.currentX - dragState.startX;
+    const threshold = 80;
+    const current = getFilteredProjetos()[stackIndex];
+    if (current) {
+        const card = current.querySelector('.projeto-frente');
+        if (card) {
+            card.style.transition = 'transform 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
+            card.style.transform = '';
+        }
+    }
+    if (dx < -threshold) { dragFired = true; goNext(); }
+    else if (dx > threshold) { dragFired = true; goPrev(); }
+    dragState = null;
+}
+
+if (projetoWrapper) {
+    // Mouse
+    projetoWrapper.addEventListener('mousedown', onDragStart);
+    document.addEventListener('mousemove', onDragMove);
+    document.addEventListener('mouseup', onDragEnd);
+    // Touch
+    projetoWrapper.addEventListener('touchstart', onDragStart, { passive: true });
+    document.addEventListener('touchmove', onDragMove, { passive: true });
+    document.addEventListener('touchend', onDragEnd);
 }
 
 // Teclado
