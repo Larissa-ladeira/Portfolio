@@ -1014,17 +1014,26 @@ footer a:hover::after {
     }
 
     .projeto-frente {
-        flex-direction: column;
+        flex-direction: row-reverse;
         align-items: center;
         text-align: center;
+        gap: 20px;
+    }
+
+    .expandido .projeto-frente {
+        flex-direction: column;
     }
 
     .foto {
         width: 100%;
         min-width: unset;
-        max-width: 100%;
+        max-width: 45%;
         height: auto;
         max-height: none;
+    }
+
+    .expandido .foto {
+        display: none;
     }
 
     .skill-container {
