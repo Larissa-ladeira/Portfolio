@@ -90,24 +90,134 @@ if (hamburger && navMenu) {
 }
 
 
-// Animação de entrada dos projetos
-const projetos = document.querySelectorAll(".projeto-flip");
+// Stack de projetos empilhados
+let stackIndex = 0;
+const todosProjetos = document.querySelectorAll(".projeto-flip");
+const stackCounter = document.querySelector(".stack-counter");
+const stackPrev = document.querySelector(".stack-prev");
+const stackNext = document.querySelector(".stack-next");
+const projetoWrapper = document.getElementById("projeto-wrapper");
 
-function animarEntradaProjetos(lista) {
-    lista.forEach((projeto, index) => {
-        projeto.style.opacity = "0";
-        projeto.style.transform = "translateY(30px)";
-        projeto.style.transition = "all 0.5s ease";
-        projeto.style.transitionDelay = `${index * 0.08}s`;
-        
-        setTimeout(() => {
-            projeto.style.opacity = "1";
-            projeto.style.transform = "translateY(0)";
-        }, 50);
+function getFilteredProjetos() {
+    const ativo = document.querySelector(".filtro-btn.ativo");
+    const filter = ativo ? ativo.dataset.filter : "all";
+    return Array.from(todosProjetos).filter(p =>
+        filter === "all" || p.dataset.category === filter
+    );
+}
+
+function renderStack() {
+    const filtered = getFilteredProjetos();
+    const total = filtered.length;
+
+    if (stackIndex >= total) stackIndex = total - 1;
+    if (stackIndex < 0) stackIndex = 0;
+
+    // Hide all & remove order
+    todosProjetos.forEach(p => {
+        p.className = p.className
+            .replace(/\bstack-\w+/g, '')
+            .trim();
+        p.style.display = "none";
+    });
+
+    if (total === 0) {
+        stackCounter.textContent = "0 / 0";
+        return;
+    }
+
+    // Show stack: current (0), behind (1), behind-2 (2)
+    filtered.forEach((p, i) => {
+        p.style.display = "";
+        const pos = i - stackIndex;
+        if (pos === 0) {
+            p.classList.add("stack-visible", "stack-0");
+        } else if (pos === 1) {
+            p.classList.add("stack-visible", "stack-1");
+        } else if (pos === 2) {
+            p.classList.add("stack-visible", "stack-2");
+        } else {
+            p.classList.add("stack-hidden");
+        }
+    });
+
+    stackCounter.textContent = `${stackIndex + 1} / ${total}`;
+    stackCounter.style.transform = "scale(1.2)";
+    setTimeout(() => { stackCounter.style.transform = "scale(1)"; }, 200);
+
+    // Desabilita botoes nos limites
+    if (stackPrev) {
+        stackPrev.disabled = stackIndex === 0;
+        stackPrev.style.opacity = stackIndex === 0 ? "0.4" : "1";
+    }
+    if (stackNext) {
+        stackNext.disabled = stackIndex >= total - 1;
+        stackNext.style.opacity = stackIndex >= total - 1 ? "0.4" : "1";
+    }
+
+    // Ajusta altura do wrapper pro card atual
+    requestAnimationFrame(() => {
+        const current = filtered[stackIndex];
+        if (current) {
+            const h = current.querySelector(".projeto-frente")?.offsetHeight || 520;
+            projetoWrapper.style.minHeight = h + "px";
+        } else {
+            projetoWrapper.style.minHeight = "200px";
+        }
     });
 }
 
-animarEntradaProjetos(projetos);
+function goNext() {
+    const total = getFilteredProjetos().length;
+    if (stackIndex < total - 1) {
+        // Fecha details antes de navegar
+        const current = getFilteredProjetos()[stackIndex];
+        const details = current?.querySelector(".projeto-verso");
+        if (details) details.open = false;
+        stackIndex++;
+        renderStack();
+    }
+}
+
+function goPrev() {
+    if (stackIndex > 0) {
+        const current = getFilteredProjetos()[stackIndex];
+        const details = current?.querySelector(".projeto-verso");
+        if (details) details.open = false;
+        stackIndex--;
+        renderStack();
+    }
+}
+
+function goToProject(index) {
+    const filtered = getFilteredProjetos();
+    if (index >= 0 && index < filtered.length) {
+        const current = filtered[stackIndex];
+        const details = current?.querySelector(".projeto-verso");
+        if (details) details.open = false;
+        stackIndex = index;
+        renderStack();
+    }
+}
+
+// Eventos navegacao
+if (stackNext) stackNext.addEventListener("click", (e) => { e.stopPropagation(); goNext(); });
+if (stackPrev) stackPrev.addEventListener("click", (e) => { e.stopPropagation(); goPrev(); });
+
+// Click no wrapper (area vazia) avanca
+if (projetoWrapper) {
+    projetoWrapper.addEventListener("click", (e) => {
+        if (e.target.closest("details") || e.target.closest("a") || e.target.closest("button")) return;
+        e.stopPropagation();
+        goNext();
+    });
+}
+
+// Teclado
+document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") goNext();
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") goPrev();
+});
 
 // Filtro por categoria
 const filtroBotoes = document.querySelectorAll(".filtro-btn");
@@ -119,26 +229,13 @@ filtroBotoes.forEach(btn => {
         filtroBotoes.forEach(b => b.classList.remove("ativo"));
         btn.classList.add("ativo");
 
-        const todosProjetos = document.querySelectorAll(".projeto-flip");
-        let visiveis = [];
-
-        todosProjetos.forEach(projeto => {
-            const categoria = projeto.dataset.category;
-            if (filter === "all" || categoria === filter) {
-                projeto.style.display = "";
-                projeto.style.opacity = "0";
-                projeto.style.transform = "translateY(20px)";
-                visiveis.push(projeto);
-            } else {
-                projeto.style.display = "none";
-                projeto.style.opacity = "0";
-                projeto.style.transform = "translateY(20px)";
-            }
-        });
-
-        animarEntradaProjetos(visiveis);
+        stackIndex = 0;
+        renderStack();
     });
 });
+
+// Inicializa
+renderStack();
 
 // Expand Top: move midias para fora do details e controla layout
 document.querySelectorAll('.projeto-flip').forEach(projeto => {
