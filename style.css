@@ -572,12 +572,47 @@ h2 i {
     pointer-events: none;
 }
 
+/* Filtro de categorias */
+.filtro-categoria {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 30px auto 0;
+    max-width: 600px;
+}
+
+.filtro-btn {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--text-secondary);
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filtro-btn:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
+.filtro-btn.ativo {
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+}
+
 #projeto-wrapper {
     display: flex;
     flex-direction: column;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 80px 0 40px;
+    padding: 40px 0 40px;
     position: relative;
     z-index: 1;
 }
@@ -685,7 +720,7 @@ h2 i {
 details[open] .foto-HamburgueriaZ .foto-expandida {
     width: auto;
     max-width: calc((100% - 15px) / 2);
-    max-height: 560px;
+    max-height: 400px;
     object-fit: contain;
     margin: 0;
 }

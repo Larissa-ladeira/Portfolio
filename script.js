@@ -93,16 +93,51 @@ if (hamburger && navMenu) {
 // Animação de entrada dos projetos
 const projetos = document.querySelectorAll(".projeto-flip");
 
-projetos.forEach((projeto, index) => {
-    projeto.style.opacity = "0";
-    projeto.style.transform = "translateY(30px)";
-    projeto.style.transition = "all 0.6s ease";
-    projeto.style.transitionDelay = `${index * 0.1}s`;
-    
-    setTimeout(() => {
-        projeto.style.opacity = "1";
-        projeto.style.transform = "translateY(0)";
-    }, 100);
+function animarEntradaProjetos(lista) {
+    lista.forEach((projeto, index) => {
+        projeto.style.opacity = "0";
+        projeto.style.transform = "translateY(30px)";
+        projeto.style.transition = "all 0.5s ease";
+        projeto.style.transitionDelay = `${index * 0.08}s`;
+        
+        setTimeout(() => {
+            projeto.style.opacity = "1";
+            projeto.style.transform = "translateY(0)";
+        }, 50);
+    });
+}
+
+animarEntradaProjetos(projetos);
+
+// Filtro por categoria
+const filtroBotoes = document.querySelectorAll(".filtro-btn");
+
+filtroBotoes.forEach(btn => {
+    btn.addEventListener("click", () => {
+        const filter = btn.dataset.filter;
+
+        filtroBotoes.forEach(b => b.classList.remove("ativo"));
+        btn.classList.add("ativo");
+
+        const todosProjetos = document.querySelectorAll(".projeto-flip");
+        let visiveis = [];
+
+        todosProjetos.forEach(projeto => {
+            const categoria = projeto.dataset.category;
+            if (filter === "all" || categoria === filter) {
+                projeto.style.display = "";
+                projeto.style.opacity = "0";
+                projeto.style.transform = "translateY(20px)";
+                visiveis.push(projeto);
+            } else {
+                projeto.style.display = "none";
+                projeto.style.opacity = "0";
+                projeto.style.transform = "translateY(20px)";
+            }
+        });
+
+        animarEntradaProjetos(visiveis);
+    });
 });
 
 // 控制项目图片显示/隐藏

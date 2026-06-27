@@ -416,12 +416,20 @@
     <!--seção projetos -->
     <!-- Seção Projetos -->
         <section id="projetos">
-            <h2><i class="fa-solid fa-trowel-bricks"></i> Projetos</h2>            
+            <h2><i class="fa-solid fa-trowel-bricks"></i> Projetos</h2>
+
+            <div class="filtro-categoria">
+                <button class="filtro-btn ativo" data-filter="all">Todos</button>
+                <button class="filtro-btn" data-filter="frontend">Front-end</button>
+                <button class="filtro-btn" data-filter="backend">Back-end</button>
+                <button class="filtro-btn" data-filter="fullstack">Full Stack</button>
+            </div>
+
             <div id="projeto-wrapper">
 
     <!-- Projeto 1: Sistema CRM -->
 
-<div class="projeto-flip">
+<div class="projeto-flip" data-category="fullstack">
     <div class="projeto-inner">
         <div class="projeto-frente">
             <img src="imagem/CRM-grande.png" alt="Sistema CRM" class="foto">
@@ -480,7 +488,7 @@
 </div>
 
     <!-- Projeto 1: Automação Python -->
-<div class="projeto-flip">
+<div class="projeto-flip" data-category="backend">
     <div class="projeto-inner">
         <div class="projeto-frente">
             <img src="imagem/projeto-automação-playwright.png" alt="Automação Python" class="foto">
@@ -527,7 +535,7 @@
     <!--seção projetos - projeto 02-->
 
 
-            <div class="projeto-flip">
+            <div class="projeto-flip" data-category="fullstack">
                 <div class="projeto-inner">
                     
                     <div class="projeto-frente">
@@ -572,7 +580,7 @@
             
 
         <!--Projeto 3-->
-            <div class="projeto-flip">
+            <div class="projeto-flip" data-category="frontend">
                 <div class="projeto-inner">
                     <div class="projeto-frente">
                         <img src="imagem/projeto minecraft.png" alt="Projeto 3" class="foto">
@@ -605,7 +613,7 @@
                 </div>
             </div>
         <!--Projeto 4-->
-                   <div class="projeto-flip">
+                   <div class="projeto-flip" data-category="frontend">
                 <div class="projeto-inner">
                     <div class="projeto-frente">
                         <img src="imagem/encurtar-link.png" alt="Projeto 4" class="foto">
@@ -636,7 +644,7 @@
 
                 <!-- Projeto 5 -->
 
-            <div class="projeto-flip">
+            <div class="projeto-flip" data-category="fullstack">
     <div class="projeto-inner">
         <div class="projeto-frente">
             <img src="imagem/conversor-de-arquivos-atualizado.png" alt="TopConvert Pro" class="foto">
@@ -678,7 +686,7 @@
 </div>
 
          <!--Projeto 6-->
-<div class="projeto-flip">
+<div class="projeto-flip" data-category="fullstack">
     <div class="projeto-inner">
         <div class="projeto-frente">
             <img src="imagem/HamburgueriaZ-foto-pequena.png" alt="Hamburgueria Z" class="foto">
@@ -728,7 +736,7 @@
 
 
         <!--Projeto 7-->
-<div class="projeto-flip">
+<div class="projeto-flip" data-category="backend">
     <div class="projeto-inner">
         <div class="projeto-frente">
             <img src="imagem/CursoPHP.png" alt="Painel de Estudos PHP" class="foto">
@@ -791,7 +799,7 @@
 
 
     <!-- Projeto 8: Lista-Tarefas -->
-<div class="projeto-flip">
+<div class="projeto-flip" data-category="fullstack">
     <div class="projeto-inner">
         <div class="projeto-frente">
             <img src="imagem/lista-tarefas.png" alt="Lista de Tarefas" class="foto">
@@ -840,7 +848,7 @@
 </div>
 
     <!-- Projeto 9: PyFinanças -->
-<div class="projeto-flip">
+<div class="projeto-flip" data-category="fullstack">
     <div class="projeto-inner">
         <div class="projeto-frente">
             <img src="imagem/pyfinancas.png" alt="PyFinanças" class="foto">
