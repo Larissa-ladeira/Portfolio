@@ -153,6 +153,9 @@ function renderStack() {
         if (btn) { btn.disabled = stackIndex >= total - 1; }
     });
 
+    // Move setas para o card atual
+    positionSideArrows();
+
     // Altura fixa: não varia por projeto
     projetoWrapper.style.minHeight = "";
 }
@@ -197,18 +200,42 @@ if (stackPrev) stackPrev.addEventListener("click", (e) => { e.stopPropagation();
 // Click no wrapper (area vazia) avanca
 if (projetoWrapper) {
     projetoWrapper.addEventListener("click", (e) => {
-        if (e.target.closest("details") || e.target.closest("a") || e.target.closest("button") || e.target.closest(".side-arrow")) return;
+        if (e.target.closest("details") || e.target.closest("a") || e.target.closest("button")) return;
         e.stopPropagation();
         goNext();
     });
 }
 
-// Setas laterais
-const sidePrev = document.querySelector(".side-arrow-prev");
-const sideNext = document.querySelector(".side-arrow-next");
+// Setas laterais - dentro do card atual
+const sidePrev = document.createElement('button');
+sidePrev.className = 'side-arrow side-arrow-prev';
+sidePrev.innerHTML = '<i class="fa-solid fa-chevron-left"></i>';
+sidePrev.setAttribute('aria-label', 'Anterior');
 
-if (sidePrev) sidePrev.addEventListener("click", (e) => { e.stopPropagation(); goPrev(); });
-if (sideNext) sideNext.addEventListener("click", (e) => { e.stopPropagation(); goNext(); });
+const sideNext = document.createElement('button');
+sideNext.className = 'side-arrow side-arrow-next';
+sideNext.innerHTML = '<i class="fa-solid fa-chevron-right"></i>';
+sideNext.setAttribute('aria-label', 'Próximo');
+
+sidePrev.addEventListener('click', (e) => { e.stopPropagation(); goPrev(); });
+sideNext.addEventListener('click', (e) => { e.stopPropagation(); goNext(); });
+
+function positionSideArrows() {
+    sidePrev.remove();
+    sideNext.remove();
+    const filtered = getFilteredProjetos();
+    const current = filtered[stackIndex];
+    if (current) {
+        const card = current.querySelector('.projeto-frente');
+        if (card) {
+            card.appendChild(sidePrev);
+            card.appendChild(sideNext);
+        }
+    }
+}
+
+// Inicializa
+renderStack();
 
 // Teclado
 document.addEventListener("keydown", (e) => {
@@ -230,9 +257,6 @@ filtroBotoes.forEach(btn => {
         renderStack();
     });
 });
-
-// Inicializa
-renderStack();
 
 // Expand Top: move midias para fora do details e controla layout
 document.querySelectorAll('.projeto-flip').forEach(projeto => {
