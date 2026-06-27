@@ -1151,12 +1151,6 @@ footer a:hover::after {
         margin: 0 auto;
     }
 
-    .projeto-frente {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
     .foto {
         width: 100%;
         max-width: 100%;
@@ -1203,6 +1197,17 @@ footer a:hover::after {
 
     .projeto-flip.stack-2 {
         transform: translateY(16px) scale(0.94);
+    }
+
+    .projeto-frente {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .foto {
+        max-width: 100%;
+        width: 100%;
     }
 
     .menu-hamburger {
