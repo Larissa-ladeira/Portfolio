@@ -153,16 +153,8 @@ function renderStack() {
         if (btn) { btn.disabled = stackIndex >= total - 1; }
     });
 
-    // Ajusta altura do wrapper pro card atual
-    requestAnimationFrame(() => {
-        const current = filtered[stackIndex];
-        if (current) {
-            const h = current.querySelector(".projeto-frente")?.offsetHeight || 520;
-            projetoWrapper.style.minHeight = h + "px";
-        } else {
-            projetoWrapper.style.minHeight = "200px";
-        }
-    });
+    // Altura fixa: não varia por projeto
+    projetoWrapper.style.minHeight = "";
 }
 
 function goNext() {
@@ -205,7 +197,7 @@ if (stackPrev) stackPrev.addEventListener("click", (e) => { e.stopPropagation();
 // Click no wrapper (area vazia) avanca
 if (projetoWrapper) {
     projetoWrapper.addEventListener("click", (e) => {
-        if (e.target.closest("details") || e.target.closest("a") || e.target.closest("button")) return;
+        if (e.target.closest("details") || e.target.closest("a") || e.target.closest("button") || e.target.closest(".side-arrow")) return;
         e.stopPropagation();
         goNext();
     });
