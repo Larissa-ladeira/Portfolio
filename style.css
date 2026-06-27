@@ -837,10 +837,10 @@ h2 i {
 .foto {
     width: 100%;
     max-width: 420px;
-    max-height: 280px;
-    height: auto;
+    height: 260px;
     object-fit: contain;
-    background: transparent;
+    object-position: center;
+    background: rgba(0,0,0,0.12);
     transition: all 0.5s ease;
     border: 2px solid rgba(168, 85, 247, 0.15);
     border-radius: 16px;
@@ -1159,10 +1159,8 @@ footer a:hover::after {
 
     .foto {
         width: 100%;
-        min-width: unset;
         max-width: 100%;
-        height: auto;
-        max-height: none;
+        height: 260px;
     }
 
     .skill-container {
@@ -1206,6 +1204,10 @@ footer a:hover::after {
 
     .projeto-flip.stack-2 {
         transform: translateY(16px) scale(0.94);
+    }
+
+    .foto {
+        height: 200px;
     }
 
     .menu-hamburger {
