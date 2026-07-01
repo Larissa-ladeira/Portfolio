@@ -616,35 +616,37 @@ h2 i {
 .filtro-categoria {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
-    margin: 30px auto 0;
+    margin: 30px auto 40px;
     max-width: 600px;
 }
 
 .filtro-btn {
-    background: transparent;
-    border: 2px solid var(--accent);
+    background: rgba(168, 85, 247, 0.08);
+    border: 1.5px solid rgba(168, 85, 247, 0.25);
     color: var(--text-secondary);
-    padding: 8px 22px;
+    padding: 7px 20px;
     border-radius: 30px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
 }
 
 .filtro-btn:hover {
-    background: var(--accent);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+    background: rgba(168, 85, 247, 0.18);
+    color: var(--accent-light);
+    border-color: var(--accent);
+    transform: translateY(-1px);
 }
 
 .filtro-btn.ativo {
-    background: var(--accent);
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
     color: #fff;
-    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+    border-color: transparent;
+    box-shadow: 0 4px 20px rgba(168, 85, 247, 0.35);
 }
 
 #projeto-wrapper {
