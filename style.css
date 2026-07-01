@@ -557,7 +557,7 @@ h2 i {
 
 #projetos {
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 #projetos::before {
