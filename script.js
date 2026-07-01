@@ -113,12 +113,11 @@ function renderStack() {
     if (stackIndex >= total) stackIndex = total - 1;
     if (stackIndex < 0) stackIndex = 0;
 
-    // Hide all & remove order
+    // Reset all stack classes
     todosProjetos.forEach(p => {
         p.className = p.className
             .replace(/\bstack-\w+/g, '')
             .trim();
-        p.style.display = "none";
     });
 
     if (total === 0) {
@@ -127,8 +126,8 @@ function renderStack() {
     }
 
     // Show stack: current (0), behind (1), behind-2 (2)
+    // All cards remain in flow (no display:none) so CSS transitions animate smoothly
     filtered.forEach((p, i) => {
-        p.style.display = "";
         const pos = i - stackIndex;
         if (pos === 0) {
             p.classList.add("stack-visible", "stack-0");
