@@ -852,6 +852,14 @@ h2 i {
 
 .expandido .projeto-frente {
     flex-direction: column;
+    height: auto;
+    min-height: clamp(380px, 50vw, 500px);
+}
+
+.expandido .projeto-info > p {
+    -webkit-line-clamp: unset;
+    overflow: visible;
+    flex: none;
 }
 
 .projeto-frente::before {
@@ -946,24 +954,28 @@ h2 i {
 .projeto-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     flex: 1;
     z-index: 1;
     text-align: center;
-    overflow-y: auto;
     min-height: 0;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) transparent;
+    gap: 6px;
 }
 
-.projeto-info::-webkit-scrollbar {
-    width: 4px;
+.projeto-info > p {
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+    width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
-.projeto-info::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    border-radius: 4px;
+details.projeto-verso {
+    flex-shrink: 0;
+    margin-top: auto;
+    width: 100%;
 }
 
 .projeto-flip:hover .foto {
@@ -1053,10 +1065,6 @@ h2 i {
     font-weight: 500;
     padding-top: 8px;
     padding-bottom: 8px;
-}
-
-details.projeto-verso {
-    margin-top: 20px;
 }
 
 .expandido .foto {
