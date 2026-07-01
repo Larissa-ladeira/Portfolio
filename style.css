@@ -854,6 +854,7 @@ h2 i {
     flex-direction: column;
     height: auto;
     min-height: clamp(380px, 50vw, 500px);
+    overflow: visible;
 }
 
 .expandido .projeto-info > p {
