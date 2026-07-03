@@ -931,24 +931,26 @@ h2 i {
     display: flex;
     justify-content: center;
     gap: 15px;
-    align-items: flex-start;
+    align-items: center;
     width: 100%;
     max-width: 100%;
     padding: 15px 0;
 }
 
 .expandido .expand-top .foto-HamburgueriaZ .foto-expandida {
-    width: auto;
+    width: calc((100% - 15px) / 2);
     max-width: calc((100% - 15px) / 2);
     max-height: 400px;
+    height: auto;
     object-fit: contain;
     margin: 0;
 }
 
 .expandido .expand-top .foto-PyFinancas .foto-expandida {
-    width: auto;
+    width: calc((100% - 15px) / 2);
     max-width: calc((100% - 15px) / 2);
     max-height: 400px;
+    height: auto;
     object-fit: contain;
     margin: 0;
 }
