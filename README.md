@@ -21,6 +21,8 @@ Portfólio pessoal desenvolvido para apresentar meus projetos, habilidades e for
 | 📄 TopConvert Pro – Conversor de Arquivos | Python, JavaScript, jsPDF, PDF.js |
 | 🍔 Hamburgueria Z - Pedidos Mobile | Java, Android SDK, Material Design |
 | 🐘 Painel de Estudos - PHP Estruturado | PHP 8+, HTML5, CSS3, Git & GitHub |
+| 📋 Lista de Tarefas Gamificada | PHP 8+, MySQL, Docker, Google OAuth, JavaScript |
+| 💰 PyFinanças - Controle Financeiro | React 19, TypeScript, Vite, Tailwind, Supabase, Recharts, Capacitor |
 
 ## Tecnologias
 
